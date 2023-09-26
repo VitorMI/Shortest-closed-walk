@@ -20,7 +20,7 @@ Seja odd_nodes uma lista com os vértices de grau ímpar de M. Lembrando que em 
 
 Enquanto odd_nodes não for vazia:
 
-Encontre dois vértices x e y em odd_nodes cuja distância entre eles seja a menor possível (Dica: use a função shortest_path_length para calcular a distância entre dois os vértices);
+> **Encontre dois vértices x e y em odd_nodes cuja distância entre eles seja a menor possível (Dica: use a função shortest_path_length para calcular a distância entre dois os vértices);**
 
 Para cada aresta (u,v,0) no caminho entre x e y, adicione uma nova aresta (u,v,key) em M com o mesmo peso. Desta forma x e y passarão a ter grau par. O seguinte trecho pode ser usado para adicionar a aresta, com o mesmo peso da original.
 
