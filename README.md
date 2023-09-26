@@ -12,7 +12,7 @@ Para implementar esta função, sugerimos utilizar a seguinte heurística:
 
 Crie uma cópia de G como um multigrafo:
 
-> **M = nx.Multigraph(G)**
+>> **M = nx.Multigraph(G)**
 
 Se (x,y) é uma aresta de G, então M terá aresta (x,y,0), onde 0 é o identificador (key) da aresta.
 
