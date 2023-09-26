@@ -12,7 +12,8 @@ Para implementar esta função, sugerimos utilizar a seguinte heurística:
 
 Crie uma cópia de G como um multigrafo:
 
-M = nx.Multigraph(G)
+**M = nx.Multigraph(G)**
+
 Se (x,y) é uma aresta de G, então M terá aresta (x,y,0), onde 0 é o identificador (key) da aresta.
 
 Seja odd_nodes uma lista com os vértices de grau ímpar de M. Lembrando que em todo grafo, a quantidade de vértices de grau ímpar é um número par;
@@ -23,15 +24,16 @@ Encontre dois vértices x e y em odd_nodes cuja distância entre eles seja a men
 
 Para cada aresta (u,v,0) no caminho entre x e y, adicione uma nova aresta (u,v,key) em M com o mesmo peso. Desta forma x e y passarão a ter grau par. O seguinte trecho pode ser usado para adicionar a aresta, com o mesmo peso da original.
 
-  M.add_edge(u, v, key)
-  M[u][v][key]['weight'] = g.get_edge_data(u, v, 0)['weight']
-  key += 1
+  **M.add_edge(u, v, key)**
+  **M[u][v][key]['weight'] = g.get_edge_data(u, v, 0)['weight']**
+  **key += 1**
 
 A variável key pode ser inicializada com 1 e incrementada sempre que cada aresta for adicionada;
 
-Remova x e y de odd_nodes.
+**Remova x e y de odd_nodes.**
+
 No grafo M resultante, que será um grafo par, execute a função eulerian_circuit passando init como parâmetro e retorne o circuito calculado.
 
 Considere o grafo "s-u-w-cy-sc-p-05.graphml" no trecho de código abaixo. Este grafo não é Euleriano, pois possui dois vértices de grau ímpar, n0 e n4. O menor caminho entre estes dois vértices é (n0,n2,n4). Portanto, segundo a heurística proposta, as arestas (n0,n2) e (n2,n4) serão duplicadas no grafo cópia, para torná-lo par. A função deve retornar então o seguinte passeio, caso o vértice de origem seja n0:
 
-[('n0', 'n3'), ('n3', 'n4'), ('n4', 'n2'), ('n2', 'n0'), ('n0', 'n2'), ('n2', 'n4'), ('n4', 'n1'), ('n1', 'n0')]
+**[('n0', 'n3'), ('n3', 'n4'), ('n4', 'n2'), ('n2', 'n0'), ('n0', 'n2'), ('n2', 'n4'), ('n4', 'n1'), ('n1', 'n0')]**
